@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица освобождений студентов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Таблица освобождений студентов</h1>
+        <div class="alert" id="alert-message" style="display: none;"></div>
+
+        <div class="controls">
+            <div class="form-group">
+                <label for="group-select">Выберите группу:</label>
+                <select id="group-select">
+                    <option value="all">Все группы</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="search-input">Поиск:</label>
+                <input id="search-input" type="search" placeholder="Поиск по имени, группе или дате">
+            </div>
+        </div>
+
+        <table id="student-table" class="table">
+            <thead>
+                <tr>
+                    <th>Группа</th>
+                    <th>ФИО</th>
+                    <th>Дата</th>
+                    <th>Причина освобождения</th>
+                    <th>Ссылка на файл</th>
+                </tr>
+            </thead>
+            <tbody id="student-tbody"></tbody>
+        </table>
+
+        <!-- Модальное окно для добавления студента -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Добавить студента</h2>
+                <input type="text" id="student-name" placeholder="ФИО студента">
+                <input type="text" id="student-group" placeholder="Группа">
+                <input type="text" id="student-dob" placeholder="Дата рождения">
+                <input type="text" id="student-reason" placeholder="Причина освобождения">
+                <button id="save-student">Сохранить</button>
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="script2.js"></script>
+</body>
+
+</html>

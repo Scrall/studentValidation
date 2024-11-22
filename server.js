@@ -6,7 +6,10 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const fs = require("fs-extra");
 const multer = require("multer");
-const upload = multer({ dest: "upload/" }); // Место для хранения загруженных файлов
+const upload = multer({
+  limits: { fileSize: 50 * 1024 * 1024 }, // Установка максимального размера файла до 50 MB
+  dest: "upload/", // Папка для загруженных файлов
+});
 
 app.use(express.static(__dirname + "/js"));
 app.use(express.static(__dirname + "/css"));
